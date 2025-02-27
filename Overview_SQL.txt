@@ -1,0 +1,79 @@
+-- create database and table --
+Create database dbname;
+
+create table tablename(
+    col1 datatype constraint,...
+);
+
+-- use database --
+use dbname;
+
+-- Insert data in table --
+insert into tablename (col1,col2,...) values (value1, value2);
+
+-- querying data(select) --
+select col1, col2,... from tablename where condition;
+
+-- deleting data from table --
+delete from tablename where condition;
+
+-- dropping a table --
+drop table tablename;
+
+-- types of languages in DBMS/SQL --
+1. Data Definition Language(DDL): database structure are known using DDL.
+        Commands: 
+            create - Create database or its objects (table, index, function, views, store procedure, and triggers)
+            alter - Alter the structure of the database
+            drop - Delete objects from the database, but table structure will be there, can not restore
+            truncate - Remove all records from a table, including all spaces allocated for the records are removed, can not restore
+            comment - add comment to data dictionary
+            rename - rename obj if present in db
+2. Data Manipulation Language(DML): database can be updated with new data using DML.
+        Commands: 
+            insert - insert data into table
+            update - update table data if exists
+            delete - delete record from db table, only row is affected, can restore data
+            call - call pl/sql or java program
+            explain plan - DOUBT** 
+            lock - control Concurrency
+3. Data Query Language(DQL): Data retrieval instructions are written in the DQL.
+        Command: select - It is used to retrieve data from the database
+4. Data Control language(DCL): manage user access to the database by granting or revoking permissions.
+        Commands: 
+            grant - Assigns new privileges to a user account, allowing access to specific database objects, actions, or functions.
+            revoke - Removes previously granted privileges from a user account, taking away their access to certain database objects or actions.
+5. Transaction Control Language(TCL):  manage transactions in relational databases, ensuring data integrity and consistency.
+        Commands:
+            begin transaction - Starts a new transaction
+            commit - Saves all changes made during the transaction
+            rollback - Undoes all changes made during the transaction	
+            savepoint - Creates a savepoint within the current transaction
+            set transaction - DOUBT** 
+            set constraint - DOUBT** 
+
+-- benefits of SQL -- 
+    Efficiency: SQL is designed to handle complex queries and large datasets with optimal performance, making data retrieval and manipulation seamless.
+    Standardization: As an ANSI and ISO standard language, SQL provides a universal method to interact with relational databases across platforms.
+    Scalability: SQL supports databases ranging from small-scale applications to enterprise-level systems, ensuring smooth operations regardless of size.
+    Flexibility: SQL can be extended with procedural programming (e.g., PL/SQL, T-SQL) to build complex business logic and custom functions.
+-- Limitations of SQL --
+    Complexity in Advanced Operations: Advanced functionalities such as indexing, query optimization, and performance tuning require in-depth technical knowledge.
+    Scalability Concerns: SQL performs best with structured data; handling unstructured data or massive distributed systems can pose challenges.
+    Platform-Specific Variations: While SQL is standardized, many databases implement unique extensions, leading to portability and compatibility issues.
+-- SQL Use Cases --
+    E-Commerce: Manage customer orders, product catalogs, and inventory.
+    Healthcare: Maintain patient records and appointment schedules.
+    Banking: Analyze transaction histories and generate financial reports.
+    Web Development: Power dynamic websites with user-specific content.
+    Machine Learning and Data Science: Combine SQL databases with tools like Python, R, and TensorFlow to streamline machine learning workflows.        
+
+-- datatypes in SQL --
+
+
+-- operators in SQL --
+
+
+
+-- DOUBTS --
+> why syntax varies slightly between different SQL platforms?

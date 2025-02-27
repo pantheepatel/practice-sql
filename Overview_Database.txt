@@ -1,0 +1,41 @@
+Database Management System (DBMS) is a software solution designed to efficiently manage, organize, and retrieve data in a structured manner.
+    a system that allows users to create, modify, and query databases while ensuring data integrity, security, and efficient data access.
+    Key Features:-
+        Data Modeling: Tools to create and modify data models, defining the structure and relationships within the database.
+        Data Storage and Retrieval: Efficient mechanisms for storing data and executing queries to retrieve it quickly.
+        Concurrency Control: Ensures multiple users can access the database simultaneously without conflicts.
+        Data Integrity and Security: Enforces rules to maintain accurate and secure data, including access controls and encryption.
+        Backup and Recovery: Protects data with regular backups and enables recovery in case of system failures.
+
+    Typs of DBMS:- 
+        Hierarchical DBMS-organizes data in a tree-like structure with parent-child relationships. Each parent can have multiple children, but a child can have only one parent. Data navigation is done through paths.
+        Network DBMS-allows more flexible relationships, where a child can have multiple parents. It uses a network model with sets and records, and data navigation is done through sets.
+    **  Relational DBMS (RDBMS)-stores data in tables with rows and columns. Relationships are established using keys, and data access is done using SQL (Structured Query Language). Examples include MySQL, PostgreSQL, and Oracle.
+    **  NoSQL DBMS-designed for handling large volumes of unstructured or semi-structured data. It includes document databases, key-value stores, column-family stores, and graph databases. Examples include MongoDB, Cassandra, and Redis.
+    **  Object-Oriented DBMS (ODBMS)-stores data as objects, which can have attributes and methods. It supports inheritance, encapsulation, and polymorphism. Data access is done using object query language (OQL).
+        Graph-based DBMS-stores data in graph structures with nodes (entities) and edges (relationships). It uses graph query languages like Gremlin or SPARQL.
+        Document Database-stores data in flexible, semi-structured documents (e.g., JSON, XML, BSON). It allows for dynamic data structures and uses query languages specific to the document database.
+        Centralized Database-stores data in a single, central location. It is easier to manage and maintain data consistency but can become a single point of failure if the central system fails.
+        Distributed Database-stores data across multiple physical locations, improving performance, scalability, and fault tolerance.
+        Cloud Database-stores data in a virtual environment and executes over the cloud computing platform. Examples include Amazon Web Services (AWS) and Google Cloud SQL.
+        Personal Database-designed for a single user, typically on a personal computer or mobile device. Examples include Microsoft Access and SQLite.
+        Operational Database-used for creating, updating, and deleting data in real-time, designed for handling daily data operations in organizations.
+        Enterprise Database-used by large organizations to manage massive amounts of data, allowing simultaneous access to multiple users.
+
+
+-- Types of DBMS Architecture --
+1-Tier Architecture
+    Meaning: the database is directly available to the user
+        client, server, and Database are all present on the same machine.
+    Example: A Microsoft Excel spreadsheet
+    Advantages: 1. simple architecture 2. cost-effective 3. easy to implement
+2-Tier Architecture
+    Meaning: similar to a basic client-server model
+    Example: A Library Management System used in schools or small organizations
+    Advantages: 1. easy to access 2. scalable 3. low-cost 4. easy deployment
+3-Tier Architecture
+    Meaning: The client does not directly communicate with the server. 
+                Instead, it interacts with an application server which further communicates with the database system and then the query processing and transaction management takes place.
+    Example: E-commerce Store
+    Advantages: 1. Enhanced scalability 2. Data Integrity 3. Security
+    Disadvantages: 1. More Complex 2. Difficult to Interact        
