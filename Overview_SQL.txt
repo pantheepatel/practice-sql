@@ -26,7 +26,7 @@ drop table tablename;
             create - Create database or its objects (table, index, function, views, store procedure, and triggers)
             alter - Alter the structure of the database
             drop - Delete objects from the database, but table structure will be there, can not restore
-            truncate - Remove all records from a table, including all spaces allocated for the records are removed, can not restore
+            truncate - Remove all records from a table, including all spaces allocated for the records are removed, can not restore, fastest
             comment - add comment to data dictionary
             rename - rename obj if present in db
 2. Data Manipulation Language(DML): database can be updated with new data using DML.
@@ -77,3 +77,8 @@ drop table tablename;
 
 -- DOUBTS --
 > why syntax varies slightly between different SQL platforms?
+
+
+
+-- 
+> 
