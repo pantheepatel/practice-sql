@@ -74,11 +74,131 @@ drop table tablename;
 -- operators in SQL --
 
 
+-- constraints in SQL --
+PRIMARY KEY
+FOREIGN KEY eg., dept_id INT REFERENCES departments(dept_id)
+NOT NULL
+UNIQUE
+CHECK 
+DEFAULT
+
+-- types of keys in SQL --
+PK
+FK
+unique key
+Composite Key - A combination of multiple columns to uniquely identify a row
+Candidate Key - A set of columns that can uniquely identify a record. One candidate key becomes the primary key other remains CK/Alternate Key
+
+-- Index --
+It is DB obj that is used to improve speed of data retrieval operations on table by creating structured lookup.
+1. clustered index - physical order of rows in a table. A table can have only one Clustered Index because data can be physically sorted in only one way.
+2. Non-Clustered Index - additional index that does NOT change the physical order of data. It stores a separate reference to the actual data.
+
+-- ORDER BY, GROUP BY, HAVING --
+ORDER BY - 
+GROUP BY - 
+HAVING - filteration on aggregated data
+
+-- LIMIT/TOP, OFFSET --
+TOP - to limit no of rows returned
+OFFSET - for pagination
+
+-- Aggregate Functions --
+count, sum, avg, min, max
+
+-- String functions --
+concat, substring, len(for length), replace
+
+-- date functions -- REVISE THESE TOPICS as many of the functions are not directly present in mssql
+now/getdate, CAST(GETDATE() AS DATE) for CURDATE() alternative, interval for dateadd alternative
+
+-- JOINS --
+inner, left, right, full, cross, self
+If no match is found, NULL is returned.
+
+-- Subquery(Nested Query) --
+A subquery is a query inside another SQL query, enclosed within parentheses.
+1. Non-correlated Subqueries – Independent subqueries executed first.
+2. Correlated Subqueries – Dependent on the outer query and executed row-by-row.
+    Avoid for large datasets; use JOIN + GROUP BY for better efficiency.
+
+-- CTE --
+A CTE is a temporary result set that simplifies complex queries and improves readability.
+
+-- view --
+A view is a virtual table in SQL that is based on the result of a query. 
+It does not store data itself but dynamically fetches data from the underlying tables when queried.
+types: Simple, Complex, Materialized(Indexed-MSSQL)
+-- COALESCE vs ISNULL --
+COALESCE and ISNULL returns the first non-NULL value from a list of expressions.
+ISNULL is only supported in MSSQL, does not support multiple arguments, not for complex queries
+
+-- SP and Function --
+SP is a precompiled collection of SQL statements that can be executed multiple times. It helps in code reusability, security, and performance optimization.
+Function in SQL is similar to a SP but always returns a value. It is used to encapsulate logic and return a scalar value, table, or computation result.
+
+-- Cursor --
+A cursor is a database object that allows row-by-row processing of a result set, similar to how a loop iterates over an array in programming.
+
+-- window functions --
+Window functions perform calculations across a subset (window) of rows without collapsing them into a single value like aggregate functions.
+
+
+
+-- Extras --
+1. If ANY and SOME are the same, why does SQL have both?
+    SQL provides both for readability, avoiding confusion, and legacy support. Mostly we use ANY now, but previously SOME was used.
+2. WHERE filters before aggregation, HAVING filters after aggregation.
+3. When would you use EXISTS over IN?
+    EXISTS is faster when working with large subqueries.
+4. Difference Between COUNT(*) and COUNT(column_name) is * include null while other excludes
+5. CONCAT() automatically handles NULL, + does not.
+6. LEN() in MSSQL ignores trailing spaces
+7.  How do you optimize JOIN queries for performance?
+        Ensure that the JOIN columns are indexed.
+        Avoid JOINing on non-indexed or computed columns.
+        Use EXISTS instead of LEFT JOIN + NULL check if checking existence.
+    How does CROSS JOIN differ from FULL JOIN?
+        CROSS JOIN produces a Cartesian product (all possible combinations).
+        FULL JOIN combines matching and non-matching records from both tables.
+    What happens if you forget the ON condition in an INNER JOIN?
+        It becomes a CROSS JOIN, creating a Cartesian product of both tables.
+8. use UNION when duplicates must be removed, use UNION ALL when performance is priority
+9. INTERSECT Returns common records	and Slower if no proper indexing
+    EXCEPT Returns only first query’s unique records and Faster than NOT IN
+10. EXISTS stops execution after the first match, while IN checks against all values.
+11. INTERSECT vs INNER JOIN
+        INTERSECT works at the row level, returning common rows.
+        INNER JOIN joins on a specific column.
+12. CASE is SQL’s version of IF-ELSE but optimized for row-based operations.
+13. SP can call functions, functions can not call SP
+14. partitioning improves query efficiency, but indexing speeds up searches within partitions.
 
 -- DOUBTS --
 > why syntax varies slightly between different SQL platforms?
+> diff between composite key, candidate key, alternate key, super key
+> Practical scenario based questions
+> Optimization
+> ORDER BY, GROUP BY, HAVING difference
+> OFFSET indepth
+> what if we use sum, avg agg fun on non-numeric column
+> CTE
+> diff between left outer join and except and not in
+> Exists vs IN
+> CTE vs VIEW vs subquery
+> if we have validations in FE, BE then why to add one more layer of DB validation into this
+> diff bet all types of views
+> cursor
+> partitioning vs indexing
+> in depth question and ans for normalization with each nf's definition
 
 
-
--- 
-> 
+--
+Example: Find employees who earn more than their department's average
+SELECT e1.name, e1.salary, e1.department_id
+FROM employees e1
+WHERE e1.salary > (
+    SELECT AVG(e2.salary)
+    FROM employees e2
+    WHERE e2.department_id = e1.department_id
+);
