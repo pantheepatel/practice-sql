@@ -22,6 +22,7 @@ Database Management System (DBMS) is a software solution designed to efficiently
         Operational Database-used for creating, updating, and deleting data in real-time, designed for handling daily data operations in organizations.
         Enterprise Database-used by large organizations to manage massive amounts of data, allowing simultaneous access to multiple users.
 
+Database Queries: are requests made to dbms for specific information
 
 -- Types of DBMS Architecture --
 1-Tier Architecture
